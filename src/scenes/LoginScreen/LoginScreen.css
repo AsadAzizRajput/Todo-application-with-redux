@@ -1,0 +1,41 @@
+.login-form{
+    width:25%;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: whitesmoke;
+    border: 1px solid #e1ecf6 !important;
+    padding: 11px;
+    
+ }
+
+ .login-form-forgot {
+    float: right !important;
+  }
+  .login-form-button {
+    width: 100% ;
+  
+  }
+  .ant-layout-header {
+    height: 60px;
+    line-height: 64px;
+    color: #1990ff;
+    font-weight: 500;
+    font-size: 22px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    background-color: #1990ff;
+    padding: 0 8%;
+  }
+  #components-form-demo-normal-login .login-form {
+    max-width: 300px;
+  }
+  #components-form-demo-normal-login .login-form-forgot {
+    float: right !important;
+  }
+  #components-form-demo-normal-login .login-form-button {
+    width: 100% ;
+    color: green !important;
+  }
