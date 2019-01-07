@@ -1,17 +1,5 @@
-import { connect } from 'react-redux'
-import { increment, decrement, reset } from './actionCreators'
+import { createStore } from "redux";
+import {counter} from "./reducers/counter";
 
-// const Counter = ...
+export const store = createStore(counter);
 
-const mapStateToProps = (state /*, ownProps*/) => {
-  return {
-    counter: state.counter
-  }
-}
-
-const mapDispatchToProps = { increment, decrement, reset }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter)

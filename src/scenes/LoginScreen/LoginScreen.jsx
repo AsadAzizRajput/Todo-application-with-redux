@@ -4,10 +4,34 @@ import {
   } from 'antd';
 import './LoginScreen.css'
 import axios from 'axios'
+import {store} from '../../redux/store';
 const { Header} = Layout;
 const FormItem = Form.Item;
   
   class NormalLoginForm extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        counterval:store.getState()
+      }
+    }
+    counter=()=>{
+        // console.log(store.getState())
+        store.dispatch(
+          {
+            type:'INCREMENT'
+          }
+        )
+        this.setState.counterval =store.getState();
+        this.setState({
+          counterval:store.getState()
+        })
+        
+        console.log('store.getState()')
+        console.log(store.getState())
+        // console.log('this.state.counterval');
+        // console.log(this.state.counterval);
+    }
     handleSubmit = (e) => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
@@ -27,7 +51,7 @@ const FormItem = Form.Item;
       const { getFieldDecorator } = this.props.form;
       return (
         <React.Fragment>
-        <Header>Login Here</Header>
+        <Header>{store.getState()}</Header>
         <Form onSubmit={this.handleSubmit} className="login-form">
           <FormItem>
             {getFieldDecorator('email', {
@@ -54,18 +78,23 @@ const FormItem = Form.Item;
             })(
               <Checkbox>Remember me</Checkbox>
             )}
-            <a className="login-form-forgot" href="">Forgot password</a>
+            <a className="login-form-forgot" href="#">Forgot password</a>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
-            Or <a href="">register now!</a>
+            Or <a href="#">register now!</a>
           </FormItem>
         </Form>
+        <Button onClick={this.counter} type="primary" className="login-form-button">
+             Testing
+            </Button>
         </React.Fragment>
       );
     }
+  
   }
   
+ 
   const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
   export default WrappedNormalLoginForm;
